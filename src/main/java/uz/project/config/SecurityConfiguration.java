@@ -58,6 +58,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/file/download/*").permitAll()
                 .antMatchers("/api/file/delete/*").permitAll()
 
+                /** permissions for product rest apis*/
+
+                .antMatchers("/api/product/add_new_product").permitAll()
+                .antMatchers("/api/product/{id}").permitAll()
+                .antMatchers("/api/product/all/{name}").permitAll()
+                .antMatchers("/api/product/delete/{id}").permitAll()
+                .antMatchers("/api/product/update").permitAll()
+                .antMatchers("/api/product/checking/{id}").permitAll()
+                .antMatchers("/api/product/checking/all").permitAll()
                 .and()
                 .httpBasic();
 
