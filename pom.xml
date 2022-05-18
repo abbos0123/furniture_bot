@@ -63,6 +63,16 @@
             <artifactId>telegrambots-spring-boot-starter</artifactId>
             <version>6.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>systems.fehn</groupId>
+            <artifactId>hashids-spring-boot-starter</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 
 
     </dependencies>
