@@ -1,6 +1,5 @@
 package uz.project.controllers;
 
-import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileUrlResource;
 import org.springframework.http.HttpHeaders;
