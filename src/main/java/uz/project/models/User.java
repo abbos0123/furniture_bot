@@ -67,7 +67,7 @@ public class User {
     @JoinColumn(name = "password_and_user_image", referencedColumnName = "id")
     private FileStorage passwordAndUserImage;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "active_orders",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -76,7 +76,7 @@ public class User {
     )
     private List<Product> activeOrders;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "completed_orders",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -84,7 +84,7 @@ public class User {
     )
     private List<Product> completedOrders;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "wishlist",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -92,7 +92,7 @@ public class User {
     )
     private List<Product> wishList;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "active_basket_for_users",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -100,7 +100,7 @@ public class User {
     )
     private List<Product> activeBasket;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
