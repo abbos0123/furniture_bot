@@ -61,7 +61,7 @@ public class FurnitureBot extends TelegramLongPollingBot {
                 }
 
                 if (text.equals("user")){
-                    var user = userService.getUserById(6L);
+                    var user = userService.getUserById(6);
                     sendMessage(message, user.toString(), false);
                 }
             }
