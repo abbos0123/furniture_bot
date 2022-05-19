@@ -24,7 +24,7 @@ public class Product {
     @Column(name = "product_category")
     private ProductCategory productCategory;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "product_images_table",
             joinColumns = @JoinColumn(name = "product_id"),

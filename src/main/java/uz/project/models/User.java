@@ -46,6 +46,9 @@ public class User {
     @Column(name = "position")
     private String position;
 
+    @Enumerated(EnumType.STRING)
+    private Language language;
+
     @Column(name = "work_experience")
     private float workExperience;
 
@@ -256,6 +259,14 @@ public class User {
 
     public void setPasswordAndUserImage(FileStorage passwordAndUserImage) {
         this.passwordAndUserImage = passwordAndUserImage;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 
     public List<Product> getActiveOrders() {
