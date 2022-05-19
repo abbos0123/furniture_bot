@@ -17,6 +17,7 @@ public class BotService {
 
         replyKeyboardMarkup.setResizeKeyboard(true);
         replyKeyboardMarkup.setSelective(true);
+        replyKeyboardMarkup.setOneTimeKeyboard(true);
 
         List<KeyboardRow> keyboardRows = new ArrayList<>();
 
@@ -31,9 +32,13 @@ public class BotService {
         KeyboardButton keyboardButton3 = new KeyboardButton();
         keyboardButton3.setText("Russian");
 
+        KeyboardButton keyboardButton4 = new KeyboardButton();
+        keyboardButton4.setText("Krill");
+
         keyboardRow1.add(keyboardButton);
         keyboardRow1.add(keyboardButton3);
         keyboardRow1.add(keyboardButton2);
+        keyboardRow1.add(keyboardButton4);
 
         keyboardRows.add(keyboardRow1);
         replyKeyboardMarkup.setKeyboard(keyboardRows);
@@ -51,7 +56,7 @@ public class BotService {
         } else if (language.equals("English")) {
             furnitureBot.setLanguage(Language.ENGLISH);
 
-        } else if (language.equals("KRILL")) {
+        } else if (language.equals("Krill")) {
             furnitureBot.setLanguage(Language.KRILL);
         }
 

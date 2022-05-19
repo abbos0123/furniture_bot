@@ -11,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import uz.project.models.Language;
 import uz.project.services.ProductService;
+import uz.project.services.UserService;
 import uz.project.utilds.BotService;
 
 
@@ -21,7 +22,7 @@ public class FurnitureBot extends TelegramLongPollingBot {
     private Long currentChatId = -1L;
 
     @Autowired
-    public ProductService productController;
+    public UserService userService;
     @Value("${bot.username}")
     private String username;
 
@@ -55,10 +56,14 @@ public class FurnitureBot extends TelegramLongPollingBot {
                     System.out.println();
                 }
 
-                if (text.equals("Uzbek") || text.equals("Russian") || text.equals("English")) {
+                if (text.equals("Uzbek") || text.equals("Russian") || text.equals("English") || text.equals("Krill")) {
                     BotService.setLanguage(this, text);
                 }
 
+                if (text.equals("user")){
+                    var user = userService.getUserById(6);
+                    sendMessage(message, user.toString(), false);
+                }
             }
 
         }
@@ -81,12 +86,20 @@ public class FurnitureBot extends TelegramLongPollingBot {
     }
 
     private void startBot(Message message) {
+        sendMessage(message,
+                " Uzbek    ->   Iltimos tilni tanlan " +
+                        "\nРусский  ->  Пожалуйста, выберите язык " +
+                        "\nEnglish ->  Please choose Language " +
+                        "\nКрилл    ->  Илтимос тилни танланг)", true);
+    }
 
+    private void sendMessage(Message message, String text, Boolean openKey) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Hello my dear");
-        sendMessage.setParseMode(ParseMode.MARKDOWNV2);
+        sendMessage.setText(text);
+        sendMessage.setParseMode(ParseMode.MARKDOWN);
         sendMessage.setChatId(message.getChatId().toString());
 
+        if (openKey)
         BotService.setLanguageKeyboardButton(sendMessage);
 
         try {

@@ -2,6 +2,8 @@ package uz.project.services;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import uz.project.models.Language;
+import uz.project.models.Student;
 import uz.project.models.User;
 import uz.project.repositries.UserRepository;
 
@@ -34,6 +36,13 @@ public class UserService {
         }
 
         return null;
+    }
+
+    public Student getUserById(Integer id) {
+        var student = new Student();
+        student.setAge(21);
+        student.setName("Abbos");
+        return student;
     }
 
     public User getUserByUsername(String username) {
